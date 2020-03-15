@@ -22,3 +22,39 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+* Installation Steps:-
+1 Prerequistics
+    1.1 Make sure your system is update
+        `$sudo apt-get update`
+        `$sudo apt-get upgrade`
+    1.2 installs required package
+        `sudo apt install curl git nodejs gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev`
+2 Installing ruby
+    2.1 installing rbenv
+        `git clone https://github.com/rbenv/rbenv.git ~/.rbenv`
+    2.2 Run these commands for proper working of rbenv package installer run these 
+        commands one by one in sequence. They will not provide any output if done properly.
+        `echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc`
+        `echo 'eval "$(rbenv init -)"' >> ~/.bashrc`
+        `exit`
+    2.3 Next, install ruby-build to help compile the Ruby binaries.
+        `mkdir -p "$(rbenv root)"/plugins`
+        `git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build`
+         Run `rbenv -v` to check it's version and if it's properly installed.
+    2.4 Finally install ruby using rbenv
+        `rbenv install 2.6.5 --verbose`
+3 Installing rails and bundler
+    3.1 Install Rails and Bundler
+        `gem install rails -v 5.2.3`
+    3.2 make a directory to house the project 
+        `mkdir new_dir_name`
+        change into that directory
+        `cd new_dir_name`
+        finally create the application from here
+        `rails new my_first_rails_app`
+    3.3 It would be a good idea to migrate the changes onto the database
+        one example is given below:-
+        `rails generate scaffold car make:string model:string year:integer`
+        `rails db:migrate` 
+    3.4 start your app
+        `rails server`
